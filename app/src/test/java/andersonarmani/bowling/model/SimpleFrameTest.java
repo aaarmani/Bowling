@@ -14,7 +14,7 @@ public class SimpleFrameTest {
         Frame frame = new SimpleFrame();
 
         assertEquals(0, frame.getScore());
-        assertEquals(FrameStatus.empty, frame.getStatus());
+        assertEquals(FrameStatus.EMPTY, frame.getStatus());
     }
 
 
@@ -25,7 +25,7 @@ public class SimpleFrameTest {
 
         frame.setTurnPins(quantityOfPins);
 
-        assertEquals(FrameStatus.playing, frame.getStatus());
+        assertEquals(FrameStatus.PLAYING, frame.getStatus());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class SimpleFrameTest {
 
         frame.setTurnPins(quantityOfPins);
 
-        assertEquals(FrameStatus.strike, frame.getStatus());
+        assertEquals(FrameStatus.STRIKE, frame.getStatus());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class SimpleFrameTest {
         frame.setTurnPins(quantityOfPins1);
         frame.setTurnPins(quantityOfPins2);
 
-        assertEquals(FrameStatus.completed, frame.getStatus());
+        assertEquals(FrameStatus.COMPLETED, frame.getStatus());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class SimpleFrameTest {
         frame.setTurnPins(quantityOfPins1);
         frame.setTurnPins(quantityOfPins2);
 
-        assertEquals(FrameStatus.spare, frame.getStatus());
+        assertEquals(FrameStatus.SPARE, frame.getStatus());
     }
 
     @Test

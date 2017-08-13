@@ -5,10 +5,10 @@ package andersonarmani.bowling.model;
  */
 
 public enum FrameStatus {
-    empty,
-    playing,
-    spare,
-    strike,
-    strike_1,
-    completed
+    EMPTY,
+    PLAYING,
+    SPARE,
+    STRIKE,
+    STRIKE_EXTRA,
+    COMPLETED
 }

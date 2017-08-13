@@ -13,7 +13,7 @@ public class FinalFrameTest {
         Frame frame = new FinalFrame();
 
         assertEquals(0, frame.getScore());
-        assertEquals(FrameStatus.empty, frame.getStatus());
+        assertEquals(FrameStatus.EMPTY, frame.getStatus());
     }
 
     @Test
@@ -23,7 +23,7 @@ public class FinalFrameTest {
 
         frame.setTurnPins(quantityOfPins);
 
-        assertEquals(FrameStatus.playing, frame.getStatus());
+        assertEquals(FrameStatus.PLAYING, frame.getStatus());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class FinalFrameTest {
 
         frame.setTurnPins(quantityOfPins);
 
-        assertEquals(FrameStatus.strike, frame.getStatus());
+        assertEquals(FrameStatus.STRIKE, frame.getStatus());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class FinalFrameTest {
         frame.setTurnPins(quantityOfPins1);
         frame.setTurnPins(quantityOfPins2);
 
-        assertEquals(FrameStatus.completed, frame.getStatus());
+        assertEquals(FrameStatus.COMPLETED, frame.getStatus());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class FinalFrameTest {
         frame.setTurnPins(quantityOfPins1);
         frame.setTurnPins(quantityOfPins2);
 
-        assertEquals(FrameStatus.spare, frame.getStatus());
+        assertEquals(FrameStatus.SPARE, frame.getStatus());
     }
 
     @Test
@@ -123,7 +123,7 @@ public class FinalFrameTest {
         frame.setTurnPins(quantityOfPins2);
         frame.setTurnPins(quantityOfPins3);
 
-        assertEquals(FrameStatus.completed, frame.getStatus());
+        assertEquals(FrameStatus.COMPLETED, frame.getStatus());
         assertEquals(totalScore, frame.getScore());
     }
 
@@ -153,13 +153,11 @@ public class FinalFrameTest {
         Frame frame = new FinalFrame();
         int quantityOfPins1 = Frame.MAX_PINS;
         int quantityOfPins2 = 3;
-        int totalScore = 13;
 
         frame.setTurnPins(quantityOfPins1);
         frame.setTurnPins(quantityOfPins2);
 
-        assertEquals(FrameStatus.strike_1, frame.getStatus());
-        assertEquals(totalScore, frame.getScore());
+        assertEquals(FrameStatus.STRIKE_EXTRA, frame.getStatus());
     }
 
     @Test
@@ -174,7 +172,7 @@ public class FinalFrameTest {
         frame.setTurnPins(quantityOfPins2);
         frame.setTurnPins(quantityOfPins3);
 
-        assertEquals(FrameStatus.completed, frame.getStatus());
+        assertEquals(FrameStatus.COMPLETED, frame.getStatus());
         assertEquals(totalScore, frame.getScore());
     }
 

@@ -13,7 +13,7 @@ public class SimpleFrame extends Frame {
 
     public SimpleFrame() {
         this.turnIndex = 0;
-        this.frameStatus = FrameStatus.empty;
+        this.frameStatus = FrameStatus.EMPTY;
         this.turnPins = new int[MAX_TURNS];
     }
 
@@ -47,19 +47,19 @@ public class SimpleFrame extends Frame {
      */
     private void setStatus(int turnPins) {
         if(turnPins == Frame.MAX_PINS) {
-            this.frameStatus = FrameStatus.strike;
+            this.frameStatus = FrameStatus.STRIKE;
         }
         else {
-            this.frameStatus = FrameStatus.playing;
+            this.frameStatus = FrameStatus.PLAYING;
         }
 
         turnIndex++;
         if(turnIndex == MAX_TURNS) {
             if((this.turnPins[0] + this.turnPins[1]) == Frame.MAX_PINS) {
-                this.frameStatus = FrameStatus.spare;
+                this.frameStatus = FrameStatus.SPARE;
             }
             else {
-                this.frameStatus = FrameStatus.completed;
+                this.frameStatus = FrameStatus.COMPLETED;
             }
         }
     }
