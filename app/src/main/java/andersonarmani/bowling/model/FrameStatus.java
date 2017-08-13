@@ -7,7 +7,8 @@ package andersonarmani.bowling.model;
 public enum FrameStatus {
     empty,
     playing,
-    completed,
     spare,
-    strike
+    strike,
+    strike_1,
+    completed
 }
