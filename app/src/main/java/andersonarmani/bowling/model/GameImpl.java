@@ -52,7 +52,16 @@ public class GameImpl implements Game {
         Frame frame = mListPlayers.get(currentPlayerIndex).getFrame(currentGameRound);
 
         if(!frame.getStatus().equals(FrameStatus.EMPTY)
-                && !frame.getStatus().equals(FrameStatus.PLAYING)) {
+                && !frame.getStatus().equals(FrameStatus.PLAYING) && (currentGameRound < (MAX_ROUNDS -1))) {
+
+            currentPlayerIndex = (++currentPlayerIndex >= mListPlayers.size())
+                    ? currentPlayerIndex = 0 : currentPlayerIndex;
+
+            if(currentPlayerIndex == 0) {
+                currentGameRound++;
+            }
+        }
+        else if((MAX_ROUNDS-1) == currentGameRound && frame.getStatus().equals(FrameStatus.COMPLETED)) {
             currentPlayerIndex = (++currentPlayerIndex >= mListPlayers.size())
                     ? currentPlayerIndex = 0 : currentPlayerIndex;
 
@@ -60,7 +69,7 @@ public class GameImpl implements Game {
                 currentGameRound++;
             }
 
-            if(currentGameRound > MAX_ROUNDS) {
+            if(currentGameRound >= MAX_ROUNDS) {
                 stop();
             }
         }
