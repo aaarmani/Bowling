@@ -37,6 +37,17 @@ public class SimpleFrame extends Frame {
         return score;
     }
 
+    @Override
+    int getTurnedPins() {
+        return this.turnPins[0] + turnPins[1];
+    }
+
+    @Override
+    void setExtraBalls(int pins1, int pins2) {
+        turnPins[3] = pins1;
+        turnPins[4] = pins2;
+    }
+
     public FrameStatus getStatus() {
         return frameStatus;
     }

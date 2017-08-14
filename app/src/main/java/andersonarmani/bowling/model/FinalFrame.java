@@ -31,6 +31,20 @@ public class FinalFrame extends Frame {
         return frameStatus;
     }
 
+    @Override
+    int getTurnedPins() {
+        return this.turnPins[0] + turnPins[1];
+    }
+
+    @Override
+    void setExtraBalls(int pins1, int pins2) {
+        if(frameStatus.equals(FrameStatus.SPARE) || frameStatus.equals(FrameStatus.STRIKE)) {
+            turnPins[2] = pins1;
+            turnPins[3] = pins2;
+            frameStatus = FrameStatus.COMPLETED;
+        }
+    }
+
     /**
      * Set the frame status
      * @param turnPins

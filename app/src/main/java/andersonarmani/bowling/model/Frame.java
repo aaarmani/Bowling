@@ -10,4 +10,6 @@ abstract class Frame {
     abstract public void setTurnPins(int turnPins);
     abstract public int getScore();
     abstract public FrameStatus getStatus();
+    abstract int getTurnedPins();
+    abstract void setExtraBalls(int pins1, int pins2);
 }

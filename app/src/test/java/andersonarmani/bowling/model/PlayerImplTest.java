@@ -24,6 +24,18 @@ public class PlayerImplTest {
     }
 
     @Test
+    public void getFrameOutOfIndex() {
+        boolean resultThrow = false;
+        try {
+            player.getFrame(12);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            resultThrow = true;
+        }
+
+        assertTrue(resultThrow);
+    }
+
+    @Test
     public void getScoreRoundTest() {
         int num1 = 4;
         int num2 = 5;
@@ -34,53 +46,53 @@ public class PlayerImplTest {
 
     @Test
     public void getFinalScoreWithSpareTest() {
-        int TOTAL_VALUE = 50;
+        int TOTAL_VALUE = 49;
         player.newShot(0, 4);
         player.newShot(0, 6);   //SPARE
         player.newShot(1, 3);
-        player.newShot(1, 0);
-        player.newShot(2, 5);   //TOTAL until here (10 + 3) + 3 + 5 = 21
-        player.newShot(2, 0);
-        player.newShot(3, 1);   //27
-        player.newShot(3, 0);
-        player.newShot(4, 2);   //29
-        player.newShot(4, 0);
-        player.newShot(5, 3);   //32
-        player.newShot(5, 0);
-        player.newShot(6, 4);   //36
-        player.newShot(6, 0);
-        player.newShot(7, 5);   //41
-        player.newShot(7, 0);
-        player.newShot(8, 6);   //47
-        player.newShot(8, 0);
-        player.newShot(9, 7);   //55
-        player.newShot(9, 0);
+        player.newShot(1, 0);   //TOTAL until here (10 + 3) + 3 + 0 = 16
+        player.newShot(2, 5);
+        player.newShot(2, 0);   //21
+        player.newShot(3, 1);
+        player.newShot(3, 0);   //22
+        player.newShot(4, 2);
+        player.newShot(4, 0);   //24
+        player.newShot(5, 3);
+        player.newShot(5, 0);   //27
+        player.newShot(6, 4);
+        player.newShot(6, 0);   //31
+        player.newShot(7, 5);
+        player.newShot(7, 0);   //36
+        player.newShot(8, 6);
+        player.newShot(8, 0);   //42
+        player.newShot(9, 7);
+        player.newShot(9, 0);   //49
 
         assertEquals(TOTAL_VALUE, player.getTotalScore());
     }
 
     @Test
     public void getFinalScoreWithStrikeTest() {
-        int TOTAL_VALUE = 55;
+        int TOTAL_VALUE = 49;
         player.newShot(0, Frame.MAX_PINS);
         player.newShot(1, 3);
-        player.newShot(1, 0);
-        player.newShot(2, 5);   //TOTAL until here (10 + 3 + 5) + 3 + 5 = 26
-        player.newShot(2, 0);
-        player.newShot(3, 1);   //27
-        player.newShot(3, 0);
-        player.newShot(4, 2);   //29
-        player.newShot(4, 0);
-        player.newShot(5, 3);   //32
-        player.newShot(5, 0);
-        player.newShot(6, 4);   //36
-        player.newShot(6, 0);
-        player.newShot(7, 5);   //41
-        player.newShot(7, 0);
-        player.newShot(8, 6);   //47
-        player.newShot(8, 0);
-        player.newShot(9, 7);   //55
-        player.newShot(9, 0);
+        player.newShot(1, 0);   //TOTAL until here (10 + 3 + 0) + 3 + 0 = 16
+        player.newShot(2, 5);
+        player.newShot(2, 0);   //21
+        player.newShot(3, 1);
+        player.newShot(3, 0);   //22
+        player.newShot(4, 2);
+        player.newShot(4, 0);   //24
+        player.newShot(5, 3);
+        player.newShot(5, 0);   //27
+        player.newShot(6, 4);
+        player.newShot(6, 0);   //31
+        player.newShot(7, 5);
+        player.newShot(7, 0);   //36
+        player.newShot(8, 6);
+        player.newShot(8, 0);   //42
+        player.newShot(9, 7);
+        player.newShot(9, 0);   //49
 
         assertEquals(TOTAL_VALUE, player.getTotalScore());
     }
@@ -98,7 +110,7 @@ public class PlayerImplTest {
      */
     @Test
     public void getFinalScoreWithMultipleSpareTest() {
-        int TOTAL_VALUE = 50;
+        int TOTAL_VALUE = 150;
         player.newShot(0, 5);
         player.newShot(0, 5);   //SPARE
         player.newShot(1, 5);
