@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bowling</string>
+    <string name="btn_new_shot">New Random Shot</string>
+    <string name="generate_value">Random created = </string>
 </resources>

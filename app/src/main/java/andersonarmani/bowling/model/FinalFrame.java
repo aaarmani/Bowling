@@ -62,8 +62,10 @@ public class FinalFrame extends Frame {
             case PLAYING:
                 this.turnPins[1] = turnPins;
 
-                if((this.turnPins[0] + turnPins) == MAX_PINS)
+                if((this.turnPins[0] + turnPins) >= MAX_PINS) {
                     this.frameStatus = FrameStatus.SPARE;
+                    this.turnPins[1] = MAX_PINS - this.turnPins[0];
+                }
                 else {
                     this.frameStatus = FrameStatus.COMPLETED;
                     this.score = this.turnPins[0] + this.turnPins[1];

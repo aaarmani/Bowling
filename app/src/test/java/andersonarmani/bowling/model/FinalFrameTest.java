@@ -47,6 +47,26 @@ public class FinalFrameTest {
         assertEquals(FrameStatus.COMPLETED, frame.getStatus());
     }
 
+    /**
+     * Test over value in the first two balls
+     * expected behavior
+     * number more than 10 in two balls = SPARE (10)
+     */
+    @Test
+    public void doubleSimpleScoreMoreThanMaximumTest() {
+        Frame frame = new FinalFrame();
+        int quantityOfPins1 = 7;
+        int quantityOfPins2 = 6;
+        int quantityOfPins3 = 1;
+        frame.setTurnPins(quantityOfPins1);
+        frame.setTurnPins(quantityOfPins2);
+
+        assertEquals(FrameStatus.SPARE, frame.getStatus());
+
+        frame.setTurnPins(quantityOfPins3);
+        assertEquals(11, frame.getScore());
+    }
+
     @Test
     public void doubleSpareScoreTest() {
         Frame frame = new FinalFrame();
